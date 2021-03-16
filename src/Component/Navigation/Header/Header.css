@@ -1,0 +1,80 @@
+.head {
+    width: 100%;
+    height: 60px;
+    background: black;
+    position: absolute;
+}
+.main_ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-left: 150px;
+}
+.main_ul a {
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #CDCDCD;
+    font-family: sans-serif;
+}
+.main_ul a:hover {
+    color: darkred;
+}
+.logo {
+    font-weight: bold;
+    margin-left: 100px;
+    font-size: 25px;
+    line-height: 0;
+    color: #CDCDCD;
+}
+.main_nav {
+    display: flex;
+}
+.search_block {
+    display: flex;
+    background: white;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 50px;
+    border-radius: 10px;
+}
+.buttons_and_search {
+    display: flex;
+}
+.head > .btns {
+    display: flex;
+}
+.buttons_and_search > .btns button {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid #CDCDCD;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    outline: none;
+}
+.buttons_and_search > .btns > .login {
+    background: black;
+    margin-left: 10px;
+}
+.buttons_and_search > .btns > .signup {
+    background: #36cd3c;
+    margin-left: 5px;
+}
+.search_block img {
+    width: 30px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.search_block input {
+    border: 0;
+    outline: none;
+    padding-left: 10px;
+    font-size: 17px;
+    width: 150px;
+    border-radius: 10px;
+}
