@@ -16,7 +16,7 @@ class Login extends Component {
                             <a href="/">Forgot password?</a>
                             <button className="log_in_btn">Log In</button>
                         </div>
-                        <span>Need an account? <a href="/">Sign Up</a></span>
+                        <span>Need an account? <a href="/signup">Sign Up</a></span>
                     </div>
                 </div>
             </div>

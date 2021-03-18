@@ -8,14 +8,30 @@ class Header extends Component {
         window.location.pathname = "/login"
     };
 
+    signUpPush = () => {
+        window.location.pathname = "/signup"
+    };
+
+    componentDidMount() {
+        if(window.location.pathname === "/login" || window.location.pathname === "/signup"){
+            const head = document.querySelector('.head');
+            head.style.display = "block";
+            head.children[0].children[0].style.marginLeft = "150px";
+        }
+    }
+
+    homePush = () => {
+        window.location.pathname = "/"
+    };
+
     render() {
         return (
             <header className="head">
                 <nav className="main_nav">
                     <div className="logo">
-                        <p>IT_Collaboration</p>
+                        <p onClick={this.homePush}>IT_Collaboration</p>
                     </div>
-                    {window.location.pathname !== "/login" ? (
+                    {window.location.pathname !== "/login" && window.location.pathname !== "/signup" ? (
                         <>
                             <ul className="main_ul">
                                 <li><a href="/">Home</a></li>
@@ -31,7 +47,7 @@ class Header extends Component {
                                     <button className="login" onClick={this.loginPush}>
                                         Log In
                                     </button>
-                                    <button className="signup" onClick={this.loginPush}>
+                                    <button className="signup" onClick={this.signUpPush}>
                                         Sign Up
                                     </button>
                                 </div>
