@@ -1,7 +1,18 @@
 import React, {Component} from 'react';
+import axiosAPI from "../../axiosAPI";
 import './Login.css'
 
 class Login extends Component {
+
+    loginHandler = () => {
+      const object = {
+          userName: "Jack",
+          password: "123"
+      };
+      console.log(object);
+      axiosAPI.post("/regPage", object)
+    };
+
     render() {
         return (
             <div className="LoginContainer">
@@ -14,7 +25,7 @@ class Login extends Component {
                             <p>Password</p>
                             <input type="password"/>
                             <a href="/">Forgot password?</a>
-                            <button className="log_in_btn">Log In</button>
+                            <button onClick={this.loginHandler} className="log_in_btn">Log In</button>
                         </div>
                         <span>Need an account? <a href="/signup">Sign Up</a></span>
                     </div>
