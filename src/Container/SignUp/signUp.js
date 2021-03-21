@@ -1,17 +1,24 @@
 import React, {Component} from 'react';
 import arrow from "./arrow.svg";
-import InputMask from 'react-input-mask';
 import './signUp.css'
 
 
 class SignUp extends Component {
 
     state = {
-      country: "",
+        country: "",
+        num: "+996"
     };
 
     countryHandler = (e) => {
-        this.setState({country: e.target.innerText})
+        this.setState({country: e.target.innerText});
+        if(e.target.innerText === "Kyrgyzstan"){
+            this.setState({num: "+996"})
+        }else if(e.target.innerText === "Armenia"){
+            this.setState({num: "+374"})
+        }else if(e.target.innerText === "Russia" || e.target.innerText === "Qazaqstan"){
+            this.setState({num: "+7"})
+        }
     };
 
     render() {
@@ -46,8 +53,8 @@ class SignUp extends Component {
                                 <div className="select">
                                     <img src={arrow} alt=""/>
                                     <div className="options">
-                                        <p onClick={this.countryHandler}>Russian</p>
-                                        <p onClick={this.countryHandler}>Quazaqstan</p>
+                                        <p onClick={this.countryHandler}>Russia</p>
+                                        <p onClick={this.countryHandler}>Qazaqstan</p>
                                         <p onClick={this.countryHandler}>Kyrgyzstan</p>
                                         <p onClick={this.countryHandler}>Armenia</p>
                                     </div>
@@ -55,8 +62,8 @@ class SignUp extends Component {
                             </div>
                             <p>Phone number</p>
                             <div className="inputNumber">
-                                <InputMask type="text" defaultValue="+996" mask="+999"/>
-                                <InputMask type="text" placeholder="599-99-99-99" mask="999-99-99-99"/>
+                                <input type="text" value={this.state.num} readOnly/>
+                                <input type="text" placeholder="599-99-99-99"/>
                             </div>
                             <button className="btn_signUp">
                                 Sign Up
