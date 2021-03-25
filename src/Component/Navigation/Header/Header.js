@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import './Header.css'
-import search_icon from "./search_icon.svg"
+import './Header.css';
+import search_icon from "./search_icon.svg";
+import user_icon from "./user_icon.png";
 
 class Header extends Component {
+
+    state = {
+        user: JSON.parse(localStorage.getItem('user')),
+    }
 
     loginPush = () => {
         window.location.pathname = "/login"
@@ -24,6 +29,21 @@ class Header extends Component {
         window.location.pathname = "/"
     };
 
+    showMenu = () => {
+        document.getElementById('userMenu').style.transition = "all 0.5s";
+        document.getElementById('userMenu').style.opacity = "1";
+    }
+
+    closeMenu = () => {
+        document.getElementById('userMenu').style.transition = "all 0.5s";
+        document.getElementById('userMenu').style.opacity = "0";
+    }
+
+    logout = () => {
+        localStorage.clear();
+        window.location.pathname = "/";
+    }
+
     render() {
         return (
             <header className="head">
@@ -43,14 +63,35 @@ class Header extends Component {
                                     <img src={search_icon} alt=""/>
                                     <input type="text" placeholder="      Search"/>
                                 </div>
-                                <div className="btns">
-                                    <button className="login" onClick={this.loginPush}>
-                                        Log In
-                                    </button>
-                                    <button className="signup" onClick={this.signUpPush}>
-                                        Sign Up
-                                    </button>
-                                </div>
+                                {this.state.user ? (
+                                  <div className="profile_menu">
+                                      <div className="profile_icon" onClick={this.showMenu}>
+                                          <img src={user_icon} alt="user"/>
+                                      </div>
+                                      <div onMouseLeave={this.closeMenu} id="userMenu" className="user_menu">
+                                          <div>
+                                              <div className="user_info">
+                                                  <p>{this.state.user.username} {this.state.user.lastName}</p>
+                                              </div>
+                                              <div className="settings">
+                                                  <p>Settings</p>
+                                              </div>
+                                              <div onClick={this.logout} className="logout">
+                                                  <p>Log out</p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                ) : (
+                                  <div className="btns">
+                                      <button className="login" onClick={this.loginPush}>
+                                          Log In
+                                      </button>
+                                      <button className="signup" onClick={this.signUpPush}>
+                                          Sign Up
+                                      </button>
+                                  </div>
+                                )}
                             </div>
                         </>
                     ) : (

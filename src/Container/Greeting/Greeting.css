@@ -7,8 +7,42 @@
 .title {
     padding-top: 100px;
 }
+.title_2 p{
+    margin-left: 150px;
+    font-weight: 500;
+    font-size: 50px;
+}
+.title_2 > .navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 150px;
+}
+.title_2 > .navigation a {
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 50px;
+    text-decoration: underline black;
+}
+.title_2 > .navigation a:hover {
+    color: #242b2e;
+    text-decoration: none;
+}
 .title h2 {
     margin-left: 150px;
     font-size: 50px;
     font-weight: bold;
+}
+.title_2 > .navigation span {
+    display: flex;
+}
+.title_2 > .navigation img {
+    width: 30px;
+    transform: rotate(270deg);
+    margin-top: 15px;
+    margin-left: 10px;
+    transition: all 0.3s;
+}
+.title_2 > .navigation span:hover > img {
+    transform: rotate(360deg);
 }

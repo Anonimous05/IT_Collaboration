@@ -79,3 +79,59 @@
     width: 150px;
     border-radius: 10px;
 }
+.profile_menu {
+    margin-left: 20px;
+    padding-top: 5px;
+}
+.profile_icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.profile_icon img {
+    width: 50px;
+    margin-top: 8px;
+}
+.user_menu {
+    margin-left: -270px;
+    background: black;
+    width: 300px;
+    height: 190px;
+    margin-top: 8px;
+    padding: 5px;
+}
+.profile_icon:hover {
+    background: #CDCDCD;
+}
+.user_menu > div:first-child {
+    width:98%;
+    height: 97%;
+    background: white;
+    padding: 3px;
+}
+.user_info p {
+    font-weight: bold;
+}
+.user_menu p{
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 39px;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-left: 10px;
+    border: 1px solid grey;
+    width: 96%;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transition: all 0.3s;
+}
+.user_menu p:hover {
+    background: #CDCDCD;
+}
+.user_menu {
+    opacity: 0;
+}
