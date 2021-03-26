@@ -38,7 +38,7 @@ class Login extends Component {
               user = this.state.users[i];
             }
         })
-        if(user.userEmail === object.userEmail){
+        if(user && user.userEmail === object.userEmail){
           if(user.password === object.password){
             const userObj = {
               username: user.username,
@@ -50,7 +50,7 @@ class Login extends Component {
             toast.dark(`Добро пожаловать ${userObj.username}!`);
             localStorage.setItem('user', JSON.stringify(userObj))
             setTimeout(() => {
-              window.location.pathname = "/home";
+              window.location.pathname = "/";
             }, 1000)
           }else{
             this.error();

@@ -63,14 +63,18 @@ class SignUp extends Component {
         if(numOfEmptyInputs !== 0){
             this.error()
         }else{
+            let user = null;
             Object.keys(this.state.users).forEach(i => {
                 if(this.state.users[i].userEmail === userInfo.userEmail){
-                    toast.error("Такой пользоваетль уже есть!")
-                }else{
-                    axiosAPI.post('/users/.json', userInfo)
-                    this.props.history.push('/login')
+                    user = this.state.users[i]
                 }
             })
+            if(!user){
+                axiosAPI.post('/users/.json', userInfo)
+                this.props.history.push('/login')
+            }else{
+                toast.error("Такой пользоваетль уже есть!")
+            }
         }
     }
 
