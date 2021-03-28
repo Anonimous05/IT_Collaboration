@@ -46,6 +46,7 @@ class Login extends Component {
               userEmail: user.userEmail,
               country: user.country,
               number: user.number,
+               numberForInput: user.numberForInput
             }
             toast.dark(`Добро пожаловать ${userObj.username}!`);
             localStorage.setItem('user', JSON.stringify(userObj))

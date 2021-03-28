@@ -23,6 +23,14 @@ class Header extends Component {
             head.style.display = "block";
             head.children[0].children[0].style.marginLeft = "150px";
         }
+
+        if(window.location.pathname === "/"){
+            document.getElementById('homeLink').style.color = "darkred";
+        }else if(window.location.pathname === "/companies"){
+            document.getElementById('companiesLink').style.color = "darkred";
+        }else if(window.location.pathname === "/specialists"){
+            document.getElementById('specialistsLink').style.color = "darkred";
+        }
     }
 
     homePush = () => {
@@ -44,6 +52,10 @@ class Header extends Component {
         window.location.pathname = "/";
     }
 
+    settingsHandler = () => {
+        window.location.pathname = "/settings";
+    }
+
     render() {
         return (
             <header className="head">
@@ -54,9 +66,9 @@ class Header extends Component {
                     {window.location.pathname !== "/login" && window.location.pathname !== "/signup" ? (
                         <>
                             <ul className="main_ul">
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/companies">Companies</a></li>
-                                <li><a href="/specialists">Specialists</a></li>
+                                <li><a id="homeLink" href="/">Home</a></li>
+                                <li><a id="companiesLink" href="/companies">Companies</a></li>
+                                <li><a id="specialistsLink" href="/specialists">Specialists</a></li>
                             </ul>
                             <div className="buttons_and_search">
                                 <div className="search_block">
@@ -73,7 +85,7 @@ class Header extends Component {
                                               <div className="user_info">
                                                   <p>{this.state.user.username} {this.state.user.lastName}</p>
                                               </div>
-                                              <div className="settings">
+                                              <div className="settings" onClick={this.settingsHandler}>
                                                   <p>Settings</p>
                                               </div>
                                               <div onClick={this.logout} className="logout">

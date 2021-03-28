@@ -54,6 +54,7 @@ class SignUp extends Component {
             lastName: this.state.lastName,
             password: this.state.password,
             number: this.state.cod + this.state.number,
+            numberForInput: this.state.number,
         }
         for(let key in userInfo){
             if(userInfo[key] === ""){
@@ -64,7 +65,7 @@ class SignUp extends Component {
             this.error()
         }else{
             let user = null;
-            Object.keys(this.state.users).forEach(i => {
+            this.state.users &&Object.keys(this.state.users).forEach(i => {
                 if(this.state.users[i].userEmail === userInfo.userEmail){
                     user = this.state.users[i]
                 }
@@ -82,7 +83,6 @@ class SignUp extends Component {
         if(localStorage.getItem('user')) return window.location.pathname = "/home";
         return (
             <div className="SignUpContainer">
-                {console.log(this.state.country)}
                 <div className="form_signUp">
                     <div className="signInBlock">
                         <span className="signIn">Already have an account? <NavLink to="/login">Sign In</NavLink></span>
