@@ -7,6 +7,8 @@ import Greeting from "./Container/Greeting/Greeting";
 import SignUp from "./Container/SignUp/signUp";
 import {ToastContainer} from "react-toastify";
 import SettingsCompany from "./Container/Settings/settingsCompany";
+import Companies from "./Container/Companies/Companies";
+import Specialists from "./Container/Specialists/Specialists";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
               <Route path="/login" component={Login}/>
               <Route path="/signup" component={SignUp}/>
               <Route path="/settings" component={SettingsCompany}/>
+              <Route path="/companies" component={Companies}/>
+              <Route path="/specialists" component={Specialists}/>
           </Switch>
       </div>
 );
